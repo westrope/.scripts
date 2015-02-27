@@ -2,7 +2,7 @@
 
     if [ -f ~/.scripts/.epoch ];
     then
-	cat .epoch > .tmp1
+	cat ~/.scripts/.epoch > .tmp1
 	echo `date +"%s"` >> .tmp1
 
 	i=1;

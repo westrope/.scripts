@@ -1,0 +1,56 @@
+#!/bin/zsh
+
+    if [ -f ~/.scripts/.epoch ];
+    then
+	cat .epoch > .tmp1
+	echo `date +"%s"` >> .tmp1
+
+	i=1;
+	for j in `cat .tmp1`
+	do
+	    array[$i]=$j;
+	    i=$(($i+1));
+	done
+
+	past=${array[1]};
+	now=${array[2]};
+	difference=$(($now-$past));
+
+	if [ "$difference" -gt 86400 ]
+	then
+	    echo "You haven't updated in 24 hours, would you like to update now? [y/n]"
+	    read ANS
+
+	    if [ "$ANS" = "y" ];
+	    then
+		spruce
+	    elif [ "$ANS" = "Y" ];
+	    then
+		spruce
+	    else
+		echo "Run spruce to update manually."
+	    fi
+	    	    
+	else
+	    echo "It hasn't been more than a day, no need to update."
+	    echo "Run spruce to update manually."
+	fi
+
+	rm .tmp1
+    else
+	echo "You haven't run spruce/autospruce before, or you removed .epoch"
+	echo "Would you like to run spruce and update now? [y/n]"
+	read ANS2
+
+	if [ "$ANS2" = "y" ];
+	then
+	    spruce
+	elif [ "$ANS2" = "Y" ];
+	then
+	    spruce
+	else
+	    echo "Run spruce to update manually."
+	fi
+	
+    fi
+

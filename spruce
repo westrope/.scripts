@@ -4,3 +4,12 @@ brew update
 brew upgrade
 upgrade.sh
 
+if [ -f ~/.scripts/.epoch ];
+then
+    rm ~/.scripts/.epoch
+    echo `date +"%s"` > ~/.scripts/.epoch
+else
+    echo `date +"%s"` > ~/.scripts/.epoch
+fi
+
+

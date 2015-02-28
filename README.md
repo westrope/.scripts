@@ -1,7 +1,13 @@
 # .scripts
 
 Command Line scripts I've created. All scripts should be placed in
-~/.scripts/ for everything to work correctly.
+```~/.scripts/``` for everything to work correctly.
+
+Add the following to your PATH:
+```
+~/.scripts/
+```
+
 
 ## spruce
 
